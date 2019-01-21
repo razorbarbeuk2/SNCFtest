@@ -36,10 +36,7 @@ function checkString(box) {
   if (!isNaN(Number(box))) {
     for (let i = 0; i < box.length; i++) {
       if (box[i] < "1") {
-        console.log(
-          errorColor,
-          "Syntax Error, insert a number between 1 and 9"
-        );
+        console.log(errorColor, "Syntax Error, insert a number between 1 and 9");
         return false;
       }
     }
