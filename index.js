@@ -36,7 +36,10 @@ function checkString(box) {
   if (!isNaN(Number(box))) {
     for (let i = 0; i < box.length; i++) {
       if (box[i] < "1") {
-        console.log(errorColor, "Syntax Error, insert a number between 1 and 9");
+        console.log(
+          errorColor,
+          "Syntax Error, insert a number between 1 and 9"
+        );
         return false;
       }
     }
@@ -68,12 +71,12 @@ function additionNode(node) {
 //Optimisation des nodes du tableau
 function boxOptimisationNode(node, index, tab) {
   for (let i = 0; i < tab.length; i++) {
-    let element = tab[i];
     if (additionNode(tab[i]) < 10) {
+      let element = tab[i];
       for (let t = 0; t < element.length; t++) {
         let result = 0;
         result = Number(node) + Number(element[t]);
-        if (result == 10) {
+        if (result == 10 && (index != i)) {
           tab.splice(index, 1, node.concat(element[t]));
           tab[i] = element.replace(new RegExp(element[t], "i"), "");
         }
